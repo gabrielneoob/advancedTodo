@@ -2,6 +2,7 @@ import { GlobalStyles, Header, TodoContainer } from "./GlobalStyles"
 import Search from "./components/search"
 import Task from "./components/task"
 import Todos from "./components/todos"
+import { useTodos } from "./context/todoContext"
 
 const App = () => {
   return (
