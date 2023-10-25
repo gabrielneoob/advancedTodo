@@ -7,7 +7,7 @@ const api = axios.create({
 })
 
 export const useApi = () => {
-  const { setUpdated } = useTodos();
+  const { setUpdated, selectInput } = useTodos();
   const getTodos = async ():Promise<TodoTypes[]> => {
     const data = await api.get('');
     setUpdated(true);
@@ -36,11 +36,43 @@ export const useApi = () => {
     return data.data
   }
 
+  const searchTodo = async(task: string) => {
+    const data = await api.post('/search', {
+      task
+    }, {
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    });
+    setUpdated(true)
+    return data.data
+  }
+
+  const updateTask = async(id: string, task: string) => {
+    const data = await api.put(`/todo/update/${id}`, {
+      task
+    }, {
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    })
+    setUpdated(true)
+    return data.data
+  }
+
+  const filterChecked = async(filter: string) => {
+    if(filter === 'done' || filter === 'undone') {
+      const data = await api.post(`/todo/${filter}`);
+      console.log(data);
+      return data.data
+    }
+    return
+  }
+
 
   return { 
     getTodos,
     createTask,
     deleteTask,
-    checkTask
+    checkTask,
+    searchTodo,
+    updateTask,
+    filterChecked
   }
 }
