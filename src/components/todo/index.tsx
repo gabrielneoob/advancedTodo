@@ -1,4 +1,3 @@
-import React from 'react'
 import { TodoTypes } from '../../types/todo.types'
 import * as Styles from './styles'
 import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai'
