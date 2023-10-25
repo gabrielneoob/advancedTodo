@@ -2,7 +2,6 @@ import  { useState, useEffect } from 'react'
 import * as Styles from "./styles"
 import Input from '../input'
 import { FaDeleteLeft } from 'react-icons/fa6'
-import { TodoTypes } from '../../types/todo.types'
 import { useApi } from '../../hooks/useApi'
 import { useTodos } from '../../context/todoContext'
 

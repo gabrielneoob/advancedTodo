@@ -1,6 +1,5 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useState } from 'react'
 import { TodoTypes } from '../types/todo.types';
-import { useApi } from '../hooks/useApi';
 import { EditTodoType, TodoContextType } from '../types/TodoContext.type';
 
 const Context = createContext<TodoContextType>({

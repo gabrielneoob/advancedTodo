@@ -7,7 +7,7 @@ const api = axios.create({
 })
 
 export const useApi = () => {
-  const { setUpdated, selectInput } = useTodos();
+  const { setUpdated } = useTodos();
   const getTodos = async ():Promise<TodoTypes[]> => {
     const data = await api.get('');
     setUpdated(true);
